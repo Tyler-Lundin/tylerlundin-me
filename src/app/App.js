@@ -11,7 +11,7 @@ const App = () => {
         <GLOBAL_STYLE/>
         <Hero/>
         <Projects/>
-        <About/>
+        {/* <About/> */}
     </S.App>
   )
 }

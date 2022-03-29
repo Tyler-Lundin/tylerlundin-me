@@ -5,16 +5,13 @@ import { AiFillGithub, AiFillInstagram, AiFillLinkedin, AiFillMessage } from 're
 import Icon from '../Icon/Icon'
 import arrow from '../__ASSETS__/arrow-sketch.png'
 import Typewriter from 'typewriter-effect';
+import Parallax from '../Parallax/Parallax'
 
 const Hero = () => {
   return (
 
     <>
       <S.Hero>
-        <S.Cta>
-          CHECK OUT MY PROJECTS
-          <img src={arrow} alt='arrow'/>
-        </S.Cta>
 
         <S.VideoContainer>
           <S.Video autoPlay muted loop={true}>
@@ -42,14 +39,24 @@ const Hero = () => {
             }}
             />
         </S.Title>
-
-        <S.SocialLinks>
-          <Icon icon={<AiFillGithub size='20px' />} label='github' />
-          <Icon icon={<AiFillLinkedin size='20px' />} label='linkedin' />
-          <Icon icon={<AiFillInstagram size='20px' />} label='instagram' />
-          <Icon icon={<AiFillMessage size='20px' />} label='contact me' />
-        </S.SocialLinks>
+          <S.SocialLinks>
+            <Icon icon={<AiFillGithub size='20px' />} label='github' />
+            <Icon icon={<AiFillLinkedin size='20px' />} label='linkedin' />
+            <Icon icon={<AiFillInstagram size='20px' />} label='instagram' />
+            <Icon icon={<AiFillMessage size='20px' />} label='contact me' />
+          </S.SocialLinks>
       </S.Hero>
+      
+      <S.CtaContainer>
+        <Parallax speed={50}>
+          <S.Cta>
+            CHECK OUT MY PROJECTS
+            <img src={arrow} alt='arrow'/>
+          </S.Cta>
+        </Parallax>
+      </S.CtaContainer>
+
+          
     </>
   )
 }
@@ -105,21 +112,29 @@ S.SocialLinks = styled.div`
   display: grid;
   grid-auto-flow: column;
   justify-items: center;
+  left: 0;
 `
 
 S.Cta = styled.div`
   width: 200px;
   height: 150px;
   position: absolute;
-  bottom: -30%;
-  left: 10%;
+  bottom: 0;
+  left: 20%;
   font-family: 'swing-king';
   color: black;
   font-size: 1rem;
   display: grid;
   justify-items: center;
-  img {
+  img { 
     width: 30%;
     transform: translateX(-100%) rotate(90deg);
   }
+`
+
+S.CtaContainer = styled.div`
+  width: 100vw;
+  height: 100vh;
+  position: absolute;
+  top: 0;
 `
